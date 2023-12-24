@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<title>Steam Games app</title>
+<link rel = "stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+    <a href="/"> Home </a>
+</nav>
+<secttion class = "conteudo">
+    {% block content %}{% endblock %}
+</secttion>

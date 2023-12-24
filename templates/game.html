@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{{ game.Title }}</h1>
+
+<p><b>GameID: </b>{{ game.GameID }}</p>
+
+<p><b>Title: </b>{{ game.Title }}</p>
+
+<p><b>Year: </b>{{ game.Year }}</p>
+
+<p><b>Review Scores: </b>{{ game.Review }}</p>
+
+<p><b>Required Age: </b>{{ game.Age }}</p>
+
+<p>
+    <b>Genres: </b>
+<ul>
+    {% for g in genres %}
+    <li>
+      <a href="/genres/{{ g.GenreId }}">{{ g.Label }}</a>
+    </li>
+    {% endfor %}
+</ul>
+</p>
+
+<!-- Acho que esta parte não está 100% correta-->
+<p>
+    <b>Platforms: </b>
+<ul>
+    {% for p in platforms %}
+    <li>
+      <a href="/platforms/{{ p.PlatformID }}">{{ p.Label }}</a>
+    </li>
+    {% endfor %}
+</ul>
+</p>
+
+<p>
+    <b>Categories: </b>
+<ul>
+    {% for c in categories %}
+    <li>
+      <a href="/categories/{{ c.CategoriesID }}">{{ c.Label }}</a>
+    </li>
+    {% endfor %}
+</ul>
+</p>
+
+{% end block %}
