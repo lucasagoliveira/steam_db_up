@@ -8,12 +8,12 @@
 -- Create 'company' table
 CREATE TABLE IF NOT EXISTS company (
     company_id INT(255) NOT NULL,
-    name VARCHAR(50) NOT NULL,
+    name VARCHAR(255) NOT NULL,
     released_games INT(255) NOT NULL,
     unreleased_games INT(255) NOT NULL,
     total_revenue INT(255) NOT NULL,
-    avgrevenue_pergame VARCHAR(50),
-    medrevenue_pergame VARCHAR(50),
+    avgrevenue_pergame VARCHAR(255),
+    medrevenue_pergame VARCHAR(255),
     hq_country INT(255),
     PRIMARY KEY (company_id)
 );
@@ -21,31 +21,15 @@ CREATE TABLE IF NOT EXISTS company (
 -- Create 'kind' table
 CREATE TABLE IF NOT EXISTS kind (
     kind_id INT(255) NOT NULL,
-    name VARCHAR(50) NOT NULL,
+    name VARCHAR(255) NOT NULL,
     PRIMARY KEY (kind_id)
-);
-
--- Create 'publisher' table
-CREATE TABLE IF NOT EXISTS publisher (
-    company_id INT(255) NOT NULL,
-    name VARCHAR(50) NOT NULL,
-    FOREIGN KEY (company_id) REFERENCES company(company_id),
-    FOREIGN KEY (name) REFERENCES company(name)
-);
-
--- Create 'developer' table
-CREATE TABLE IF NOT EXISTS developer (
-    company_id INT(255) NOT NULL,
-    name VARCHAR(50) NOT NULL,
-    FOREIGN KEY (company_id) REFERENCES company(company_id),
-    FOREIGN KEY (name) REFERENCES company(name)
 );
 
 -- Create 'product' table
 CREATE TABLE IF NOT EXISTS product (
-    app_id INT(255) NOT NULL,
+    product_id INT(255) NOT NULL,
     kind_id INT(255) NOT NULL,
-    name VARCHAR(50) NOT NULL,
+    name VARCHAR(255) NOT NULL,
     required_age INT(255) NOT NULL,
     achievements INT(255),
     release_date DATE,
@@ -55,7 +39,7 @@ CREATE TABLE IF NOT EXISTS product (
     total_positive DOUBLE NOT NULL,
     total_negative DOUBLE NOT NULL,
     rating DOUBLE NOT NULL,
-    owners VARCHAR(50),
+    owners VARCHAR(255),
     average_forever DOUBLE NOT NULL,
     median_forever DOUBLE NOT NULL,
     tags JSON,
@@ -65,46 +49,33 @@ CREATE TABLE IF NOT EXISTS product (
     platforms JSON,
     packages JSON,
     supported_lang JSON,
-    PRIMARY KEY (app_id),
+    publishers_id JSON NOT NULL,
+    developers_id JSON NOT NULL,
+    PRIMARY KEY (product_id),
     FOREIGN KEY (kind_id) REFERENCES kind(kind_id)
 );
 
 -- Create 'game' table
 CREATE TABLE IF NOT EXISTS game (
-    game_id INT(255) NOT NULL,
-    kind_id INT(255) NOT NULL,
-    app_id INT(255) NOT NULL,
-    name VARCHAR(50) NOT NULL,
-    PRIMARY KEY (game_id),
-    FOREIGN KEY (kind_id) REFERENCES kind(kind_id),
-    FOREIGN KEY (app_id) REFERENCES product(app_id),
-    FOREIGN KEY (name) REFERENCES product(name)
+    product_id INT(255) NOT NULL,
+    PRIMARY KEY (product_id),
+    FOREIGN KEY (product_id) REFERENCES product(product_id)
 );
 
 -- Create 'dlc' table
 CREATE TABLE IF NOT EXISTS dlc (
-    app_id INT(255) NOT NULL,
-    dlc_id INT(255) NOT NULL,
-    name VARCHAR(50) NOT NULL,
-    kind_id INT(255) NOT NULL,
     game_id INT(255) NOT NULL,
-    PRIMARY KEY (dlc_id),
-    FOREIGN KEY (kind_id) REFERENCES kind(kind_id),
-    FOREIGN KEY (game_id) REFERENCES game(game_id),
-    FOREIGN KEY (app_id) REFERENCES product(app_id),
-    FOREIGN KEY (name) REFERENCES product(name)
+    product_id INT(255) NOT NULL,
+    PRIMARY KEY (product_id),
+    FOREIGN KEY (product_id) REFERENCES product(product_id),
+    FOREIGN KEY (game_id) REFERENCES game(product_id)
 );
 
 -- Create 'music' table
 CREATE TABLE IF NOT EXISTS music (
-    app_id INT(255) NOT NULL,
-    music_id INT(255) NOT NULL,
-    name VARCHAR(50) NOT NULL,
-    kind_id INT(255) NOT NULL,
     game_id INT(255) NOT NULL,
-    PRIMARY KEY (music_id),
-    FOREIGN KEY (kind_id) REFERENCES kind(kind_id),
-    FOREIGN KEY (app_id) REFERENCES product(app_id),
-    FOREIGN KEY (game_id) REFERENCES game(game_id),
-    FOREIGN KEY (name) REFERENCES product(name)
+    product_id INT(255) NOT NULL,
+    PRIMARY KEY (product_id),
+    FOREIGN KEY (product_id) REFERENCES product(product_id),
+    FOREIGN KEY (game_id) REFERENCES game(product_id)
 );

@@ -8,7 +8,7 @@ DB = dict()
 
 def connect():
   global DB
-  c = sqlite3.connect('movie_stream.db', check_same_thread=False)
+  c = sqlite3.connect('steam_db_up.db', check_same_thread=False)
   c.row_factory = sqlite3.Row
   DB['conn'] = c
   DB['cursor'] = c.cursor()
