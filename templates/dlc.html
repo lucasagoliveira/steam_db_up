@@ -1,17 +1,20 @@
 {% extends 'base.html' %}
+
 {% block content %}
 
-<h1>{{ game.name }}</h1>
+<h1>{{ d.name }}</h1>
 
-<p><b>GameID: </b>{{ game.game_id }}</p>
+<p><b>DlcID: </b>{{ d.product_id }}</p>
 
-<p><b>Title: </b>{{ game.name }}</p>
+<p><b>Title: </b>{{ d.name }}</p>
 
-<p><b>Year: </b>{{ game.release_date }}</p>
+<p><b>Game: </b>{{ d.game_id.name }}</p>
 
-<p><b>Review Scores: </b>{{ game.review_score }}</p>
+<p><b>Year: </b>{{ d.release_date }}</p>
 
-<p><b>Required Age: </b>{{ game.required_age }}</p>
+<p><b>Review Scores: </b>{{ d.review_score }}</p>
+
+<p><b>Required Age: </b>{{ d.required_age }}</p>
 
 <p>
     <b>Genres: </b>
@@ -39,5 +42,6 @@
     {% endfor %}
 </ul>
 </p>
+
 
 {% end block %}

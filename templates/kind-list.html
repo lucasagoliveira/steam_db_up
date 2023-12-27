@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Kinds</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+
+    {% for ki in kind %}
+
+    <tr>
+        <td><a href = "/kinds/{{ ki.kind_id }}">{{ ki.kind_id }}</a></td>
+        <td>{{ kind.name }}</td>
+
+    </tr>
+
+    {% end for %}
+
+</table>
+
+{% end block %}

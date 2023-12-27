@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block content % }
+{% block content %}
 <h1>Steam Games database</h1>
 
 <h2>About</h2>
@@ -20,45 +20,58 @@ A mudar pois não sei se isto é necessario-->
 </tr>
 <tr>
     <td>Games</td>
-    <td>{{ stats. }}</td>
+    <td>{{ stats.n_game }}</td>
 </tr>
 <tr>
-    <td>Dlc's</td>
-    <td>{{ stats. }}</td>
+    <td>DLCs</td>
+    <td>{{ stats.n_dlc }}</td>
 </tr>
 <tr>
     <td>Publichers</td>
-    <td>{{ stats. }}</td>
+    <td>{{ stats.n_publisher }}</td>
 </tr>
 <tr>
     <td>Developers</td>
-    <td>{{ stats. }}</td>
-</tr>
-<!-- <tr>
-    <td>Customers</td>
-    <td>{{ stats. }}</td>
+    <td>{{ stats.n_developer }}</td>
 </tr>
 <tr>
-    <td>Countries</td>                  Caso seja necessário mais dados, como por exemplo pesquisar sobre generos
-    <td>{{ stats. }}</td>
+    <td>Music</td>                  
+    <td>{{ stats.n_music }}</td>
 </tr>
 <tr>
-    <td></td>
-    <td>{{ stats. }}</td>
-</tr> -->
+    <td>Product</td>
+    <td>{{ stats.n_product }}</td>
+</tr>
+<tr>
+    <td>Cathegory</td>
+    <td>{{ stats.n_cathegory }}</td>
+</tr>
+<tr>
+    <td>Company</td>
+    <td>{{ stats.n_company }}</td>
+</tr>
 </table>
 
 <h2>Sample functionality</h2>
 
+<h3>Products</h3>
+<p><a href = "/products">List all</a></p>
+<p>Get game info:
+<form name="msearch" action="javascript:window.open('/movies/search/'+document.forms['msearch'].elements['expr'].value,'_self')">
+    <input name="expr" id="expr" value="Spider" required/>
+    <input type="submit" value="search"/>
+</form>
+
 <h3>Games</h3>
 
-<p><a href = "/games">List all</a></p>
+<p><a style = "text-decoration:none" href = "/games">List all</a></p>
 <p>Get game info:
 <form name="msearch" action="javascript:window.open('/movies/search/'+document.forms['msearch'].elements['expr'].value,'_self')">
     <input name="expr" id="expr" value="Spider" required/>
     <input type="submit" value="search"/>
 </form>
 </p>
+
 
 <h3>Dlc's</h3>
 
@@ -70,26 +83,36 @@ A mudar pois não sei se isto é necessario-->
 </form>
 </p>
 
-<h3>Publichers</h3>
 
-<p><a href="/publichers">List all</a></p>
-<p>Get publicher info:
+<h3>Music</h3>
+
+<p><a href="/musics">List all</a></p>
+<p>Get music info:
 <form name="msearch" action="javascript:window.open('/movies/search/'+document.forms['msearch'].elements['expr'].value,'_self')">
     <input name="expr" id="expr" value="Spider" required/>
     <input type="submit" value="search"/>
 </form>
 </p>
 
-<h3>Developers</h3>
+<h3>Companies</h3>
 
-<p><a href ="/developers">List all</a></p>
-<p>Get developer info:
+<p><a href ="/companies">List all</a></p>
+<p>Get company info:
 <form name="msearch" action="javascript:window.open('/movies/search/'+document.forms['msearch'].elements['expr'].value,'_self')">
     <input name="expr" id="expr" value="Spider" required/>
     <input type="submit" value="search"/>
 </form>
 </p>
 
-<!-- Aqui pode ter mais -->
+
+<h3>Kind</h3>
+
+<p><a href ="/kinds">List all</a></p>
+<p>Get kind info:
+<form name="msearch" action="javascript:window.open('/movies/search/'+document.forms['msearch'].elements['expr'].value,'_self')">
+    <input name="expr" id="expr" value="Spider" required/>
+    <input type="submit" value="search"/>
+</form>
+</p>
 
 {% endblock %}

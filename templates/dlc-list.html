@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>DLCs</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Game</th>
+        <th>Year</th>
+    </tr>
+
+    {% for d in dlc %}
+
+    <tr>
+        <th><a href="/dlc/{{ d.product_id }}">{{ d.product_id }}</th>
+        <th>{{ d.name }}</th>
+        <td><a href = "/games/{{ game.game_id }}">{{ d.game_id }}</a></td>
+        <th>{{ d.release_date }}</th>
+
+    </tr>
+
+    {% end for %}
+
+</table>
+
+{% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-{% block content %}
 
+{% block content %}
 <h1>Games</h1>
 
 <table>
@@ -9,15 +9,17 @@
         <th>Name</th>
         <th>Year</th>
         <th>Review Score</th>
+        <th>Price</th>
     </tr>
 
-    {% for game in games %}
+    {% for game in game %}
 
     <tr>
-        <td><a href = "/games/{{ game.GameID }}">{{ game.GameID }}</a></td>
-        <td>{{ game.Title }}</td>
-        <td>{{ game.Year }}</td>
-        <td>{{ game.Review }}</td>
+        <td><a href = "/games/{{ game.game_id }}">{{ game.game_id }}</a></td>
+        <td>{{ game.name }}</td>
+        <td>{{ game.release_date }}</td>
+        <td>{{ game.review_score }}</td>
+        <td>{{ game.price }}</td>
     </tr>
 
     {% end for %}

@@ -1,0 +1,26 @@
+{% extends 'base.hmtl' %}
+
+{% block content %}
+
+<h1>Music</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Game</th>
+    </tr>
+
+    {% for m in music %}
+
+    <tr>
+        <td><a href = "/musics/{{ m.product_id }}">{{ m.product_id }}</a></td>
+        <td>{{ p.name }}</td>
+        <td><a href = "/games/{{ m.game_id }}">{{ m.game_id }}</a></td>
+    </tr>
+
+    {% end for %}
+
+</table>
+
+{% endblock %}
