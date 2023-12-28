@@ -1,0 +1,1 @@
+sqlite3 < populate_db.sql

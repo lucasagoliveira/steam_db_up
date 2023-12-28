@@ -1,0 +1,4 @@
+del steam_db_up.db
+sqlite3 steam_db_up.db
+.quit
+sqlite3 < instance_db.sql

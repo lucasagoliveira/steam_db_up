@@ -1,0 +1,1 @@
+sqlite3 < clean_db.sql
