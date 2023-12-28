@@ -69,13 +69,14 @@ def get_dlc(id):
         WHERE product_id = ?
     ''', [id]).fetchone()
     
+    aux = str(publishers_id[0]).split(';')
     publishers = {}
-    for publisher in publishers_id:
+    for publisher in aux:
         publishers[publisher] = db.execute('''
             SELECT name
             FROM company
             WHERE company_id = ?
-        ''', [publisher]).fetchone()
+        ''', [publisher]).fetchone()[0]
     
     developers_id = db.execute('''
         SELECT developers_id
@@ -84,13 +85,14 @@ def get_dlc(id):
         WHERE product_id = ?
     ''', [id]).fetchone()
     
+    aux = str(developers_id[0]).split(';')
     developers = {}
-    for developer in developers_id:
+    for developer in aux:
         developers[developer] = db.execute('''
             SELECT name
             FROM company
             WHERE company_id = ?
-        ''', [developer]).fetchone()
+        ''', [developer]).fetchone()[0]
     
     return render_template('dlc.html', dlc = dlc, publishers = publishers, developers = developers)
 
@@ -183,13 +185,14 @@ def get_music(id):
         WHERE product_id = ?
     ''', [id]).fetchone()
     
+    aux = str(publishers_id[0]).split(';')
     publishers = {}
-    for publisher in publishers_id:
+    for publisher in aux:
         publishers[publisher] = db.execute('''
             SELECT name
             FROM company
             WHERE company_id = ?
-        ''', [publisher]).fetchone()
+        ''', [publisher]).fetchone()[0]
     
     developers_id = db.execute('''
         SELECT developers_id
@@ -198,13 +201,14 @@ def get_music(id):
         WHERE product_id = ?
     ''', [id]).fetchone()
     
+    aux = str(developers_id[0]).split(';')
     developers = {}
-    for developer in developers_id:
+    for developer in aux:
         developers[developer] = db.execute('''
             SELECT name
             FROM company
             WHERE company_id = ?
-        ''', [developer]).fetchone()
+        ''', [developer]).fetchone()[0]
     
     return render_template('music.html', music = music, publishers = publishers, developers = developers)
 
@@ -284,17 +288,17 @@ def get_musics_per_game():
     
     return render_template('musics-per-game.html', table = table)
     
-# Products like ?
-@APP.route('/products/like/<string:id>')
-def get_products_like(id):
-    id = '%'+id+'%'
+# Products like %text%
+@APP.route('/products/like/<text>')
+def get_products_like(text):
+    text = '%'+text+'%'
     table = db.execute('''
         SELECT *
         FROM products
         where name like ? 
-    ''', [id]).fetchall()
+    ''', [text]).fetchall()
     
     if table is None:
-        abort(404, 'There is no product with {} in its name'.format(id))
+        abort(404, 'There is no product with {} in its name'.format(text))
         
     return render_template('product-like.html', table = table)
