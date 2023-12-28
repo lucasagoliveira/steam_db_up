@@ -29,7 +29,7 @@ def index():
 
 
 # Products
-@APP.route('/products')
+@APP.route('/products/')
 def list_products():
     products = db.execute('''
         SELECT *
@@ -114,7 +114,7 @@ def get_game(id):
         SELECT *
         FROM game
         NATURAL JOIN product
-        WHERE product_id = ?    
+        WHERE product_id = ?
     ''', [id]).fetchone()
     
     if game is None:
@@ -270,7 +270,7 @@ def get_dlcs_per_game():
         JOIN product
         WHERE dlc.game_id = game.product_id and game.product_id = product.product_id
         GROUP BY game_id
-    ''').fetchone()
+    ''').fetchall()
     
     return render_template('dlcs-per-game.html', table = table)
 
@@ -284,7 +284,7 @@ def get_musics_per_game():
         JOIN product
         WHERE music.game_id = game.product_id and game.product_id = product.product_id
         GROUP BY game_id
-    ''').fetchone()
+    ''').fetchall()
     
     return render_template('musics-per-game.html', table = table)
     
