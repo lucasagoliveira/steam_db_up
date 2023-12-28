@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Musics per Game</h1>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Number of Musics</th>
+    </tr>
+
+    {% for entry in table %}
+
+    <tr>
+        <td>{{ entry.name }}</td>
+        <td>{{ entry.number_of_musics }}</td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

@@ -48,10 +48,19 @@
 
 <h3>Products</h3>
 <p><a style = "text-decoration:none" href = "/products">List all</a></p>
+<p>Search by title:
+<form name="prodinfo" action="javascript:window.open('/products-like/'+document.forms['prodinfo'].elements['text'].value,'_self')">
+    <input name="text" id="text" value="Age" required/>
+    <input type="submit" value="search"/>
+</form>
+</p>
+<h3>DLCs per Game</h3>
+<p><a style = "text-decoration:none" href = "/dlcs-per-game">List all</a></p>
 
+<h3>Musics per Game</h3>
+<p><a style = "text-decoration:none" href = "/musics-per-game">List all</a></p>
 
 <h3>Games</h3>
-
 <p><a style = "text-decoration:none" href = "/games">List all</a></p>
 <p>Get game info:
 <form name="gameForm" action="javascript:window.open('/games/'+document.forms['gameForm'].elements['id'].value,'_self')">
@@ -60,7 +69,7 @@
 </p>
 
 
-<h3>Dlc's</h3>
+<h3>DLCs</h3>
 
 <p><a style = "text-decoration:none" href = "/dlcs">List all</a></p>
 <p>Get dlc info:
@@ -97,5 +106,32 @@
     Kind Id:<input value="1" name="id" type="number" min="1"/><input type="submit" value="get"/>
 </form>
 </p>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"/>
+  </svg></button>
+
+<script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+    
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+    
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+    </script>
+
 
 {% endblock %}
