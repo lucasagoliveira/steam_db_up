@@ -35,8 +35,8 @@ def list_products():
         SELECT *
         FROM product
         ORDER BY name                      
-    ''')
-    #ARRUMAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    ''').fetchall()
+    return render_template('products.html', products = products)
 
 
 # DLCs
