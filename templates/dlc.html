@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ d.name }}</h1>
+
+<p><b>DlcID: </b>{{ d.product_id }}</p>
+
+<p><b>Title: </b>{{ d.name }}</p>
+
+<p><b>Game: </b>{{ d.game_id.name }}</p>
+
+<p><b>Year: </b>{{ d.release_date }}</p>
+
+<p><b>Review Scores: </b>{{ d.review_score }}</p>
+
+<p><b>Required Age: </b>{{ d.required_age }}</p>
+
+<p>
+    <b>Genres: </b>
+<ul>
+    {% for g in genres %}
+    <li>{{ g.genres }}</li>
+    {% endfor %}
+</ul>
+</p>
+
+<p>
+    <b>Platforms: </b>
+<ul>
+    {% for p in platforms %}
+    <li>{{ p.platforms }}</li>
+    {% endfor %}
+</ul>
+</p>
+
+<p>
+    <b>Categories: </b>
+<ul>
+    {% for c in categories %}
+    <li>{{ c.categories }}</li>
+    {% endfor %}
+</ul>
+</p>
+
+
+{% endblock %}

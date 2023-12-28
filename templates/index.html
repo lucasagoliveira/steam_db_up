@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Steam Games database</h1>
+
+<h2>About</h2>
+<p>This web application illustrates the use of the Steam Games
+    database. The application is built using 
+    <a href="https://docs.python.org/3/library/sqlite3.html">sqlite3</a>,
+    <a href="https://flask.palletsprojects.com">Flask</a>, and
+    <a href="https://jinja.palletsprojects.com">Jinja</a>.
+</p> 
+
+
+<h2>Some database statistics</h2>
+
+<table>
+<tr>
+    <th>Items</th>
+    <th>Count</th>
+</tr>
+<tr>
+    <td>Games</td>
+    <td>{{ stats.n_game }}</td>
+</tr>
+<tr>
+    <td>DLCs</td>
+    <td>{{ stats.n_dlc }}</td>
+</tr>
+<tr>
+    <td>Publichers</td>
+    <td>{{ stats.n_publisher }}</td>
+</tr>
+<tr>
+    <td>Developers</td>
+    <td>{{ stats.n_developer }}</td>
+</tr>
+<tr>
+    <td>Music</td>                  
+    <td>{{ stats.n_music }}</td>
+</tr>
+<tr>
+    <td>Product</td>
+    <td>{{ stats.n_product }}</td>
+</tr>
+<tr>
+    <td>Cathegory</td>
+    <td>{{ stats.n_cathegory }}</td>
+</tr>
+<tr>
+    <td>Company</td>
+    <td>{{ stats.n_company }}</td>
+</tr>
+</table>
+
+<h2>Sample functionality</h2>
+
+<h3>Products</h3>
+<p><a style = "text-decoration:none" href = "/products">List all</a></p>
+<p>Get product info:
+<form name="mid" action="javascript:window.open('/products/'+document.forms['mid'].elements['id'].value,'_self')">
+    Product Id:<input value="123" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+
+<h3>Games</h3>
+
+<p><a style = "text-decoration:none" href = "/games">List all</a></p>
+<p>Get game info:
+<form name="mid" action="javascript:window.open('/games/'+document.forms['mid'].elements['id'].value,'_self')">
+    Game Id:<input value="123" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+
+
+<h3>Dlc's</h3>
+
+<p><a style = "text-decoration:none" href = "/dlcs">List all</a></p>
+<p>Get dlc info:
+<form name="mid" action="javascript:window.open('/dlcs/'+document.forms['mid'].elements['id'].value,'_self')">
+    Dlc Id:<input value="123" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+
+
+<h3>Music</h3>
+
+<p><a style = "text-decoration:none" href="/musics">List all</a></p>
+<p>Get music info:
+<form name="mid" action="javascript:window.open('/musics/'+document.forms['mid'].elements['id'].value,'_self')">
+    Music Id:<input value="123" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+
+<h3>Companies</h3>
+
+<p><a style = "text-decoration:none" href ="/companies">List all</a></p>
+<p>Get company info:
+<form name="mid" action="javascript:window.open('/companies/'+document.forms['mid'].elements['id'].value,'_self')">
+    Company Id:<input value="123" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+
+
+<h3>Kind</h3>
+
+<p><a style = "text-decoration:none" href ="/kinds">List all</a></p>
+<p>Get kind info:
+<form name="mid" action="javascript:window.open('/kinds/'+document.forms['mid'].elements['id'].value,'_self')">
+    Kind Id:<input value="123" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+
+{% endblock %}

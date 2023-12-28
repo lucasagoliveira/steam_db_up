@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Games</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Year</th>
+        <th>Review Score</th>
+        <th>Price</th>
+    </tr>
+
+    {% for game in game %}
+
+    <tr>
+        <td><a href = "/games/{{ game.game_id }}">{{ game.game_id }}</a></td>
+        <td>{{ game.name }}</td>
+        <td>{{ game.release_date }}</td>
+        <td>{{ game.review_score }}</td>
+        <td>{{ game.price }}</td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

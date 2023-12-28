@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Movie search</h1>
+<p><b>Search expression:</b>"{{ search.expr }}"</p>
+<p>
+<ul>
+  {% for m in movies %}
+  <li><a href="/movies/{{ m.MovieId }}">{{ m.Title }}</a></li>
+  {% endfor %}
+</ul>
+</p>
+{% endblock %}
