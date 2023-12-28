@@ -272,7 +272,7 @@ def get_dlcs_per_game():
 
 # Musics per Game
 @APP.route('/musics-per-game/')
-def get_dlcs_per_game():
+def get_musics_per_game():
     table = db.execute('''
         SELECT name, COUNT(*) as number_of_musics
         FROM music
