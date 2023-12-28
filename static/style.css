@@ -313,5 +313,6 @@ kbd {
 
 .barra{
   text-align: center;
-  font-size: 50px;
+  font-size: 30px;
+  color: #cc0000;
 }
