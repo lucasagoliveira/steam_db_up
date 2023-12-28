@@ -12,10 +12,10 @@
         <th>Price</th>
     </tr>
 
-    {% for game in game %}
+    {% for game in games %}
 
     <tr>
-        <td><a href = "/games/{{ game.game_id }}">{{ game.game_id }}</a></td>
+        <td><a style = "text-decoration:none" href = "/games/{{ game.product_id }}">{{ game.product_id }}</a></td>
         <td>{{ game.name }}</td>
         <td>{{ game.release_date }}</td>
         <td>{{ game.review_score }}</td>

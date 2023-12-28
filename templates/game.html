@@ -3,7 +3,9 @@
 
 <h1>{{ game.name }}</h1>
 
-<p><b>GameID: </b>{{ game.game_id }}</p>
+<p><b>GameID: </b>{{ game.product_id }}</p>
+
+<p><b>Kind: </b><a style = "text-decoration:none" href="/kinds/{{ game.kind_id }}">{{ game.kind_id }}</a></p>
 
 <p><b>Title: </b>{{ game.name }}</p>
 
@@ -13,31 +15,18 @@
 
 <p><b>Required Age: </b>{{ game.required_age }}</p>
 
-<p>
-    <b>Genres: </b>
-<ul>
-    {% for g in genres %}
-    <li>{{ g.genres }}</li>
-    {% endfor %}
-</ul>
-</p>
+<p><b>Price: </b>{{ game.price }}</p>
 
-<p>
-    <b>Platforms: </b>
-<ul>
-    {% for p in platforms %}
-    <li>{{ p.platforms }}</li>
-    {% endfor %}
-</ul>
-</p>
+<p><b>Achievements: </b>{{ game.achievements }}</p>
 
-<p>
-    <b>Categories: </b>
-<ul>
-    {% for c in categories %}
-    <li>{{ c.categories }}</li>
-    {% endfor %}
-</ul>
-</p>
+<p><b>Genres: </b>{{ game.genres }}</p>
+
+<p><b>Platforms: </b>{{ game.platforms }}</p>
+
+<p><b>Categories: </b>{{ game.categories }}</p>
+
+<p><b>Developers: </b><a style = "text-decoration:none" href="/companies/{{ game.developers_id }}">{{ game.developers_id }}</a></p>
+
+<p><b>Publishers: </b><a style = "text-decoration:none" href="/companies/{{ game.publishers_id }}">{{ game.publishers_id }}</a></p>
 
 {% endblock %}

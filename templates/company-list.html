@@ -9,11 +9,11 @@
         <th>Name</th>
     </tr>
 
-    {% for comp in company %}
+    {% for company in companies %}
 
     <tr>
-        <td><a href = "/companies/{{ comp.company_id }}">{{ comp.company_id }}</a></td>
-        <td>{{ comp.name }}</td>
+        <td><a style = "text-decoration:none" href = "/companies/{{ company.company_id }}">{{ company.company_id }}</a></td>
+        <td>{{ company.name }}</td>
     </tr>
 
     {% endfor %}

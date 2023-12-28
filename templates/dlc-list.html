@@ -12,13 +12,13 @@
         <th>Year</th>
     </tr>
 
-    {% for d in dlc %}
+    {% for dlc in dlcs %}
 
     <tr>
-        <th><a href="/dlc/{{ d.product_id }}">{{ d.product_id }}</th>
-        <th>{{ d.name }}</th>
-        <td><a href = "/games/{{ game.game_id }}">{{ d.game_id }}</a></td>
-        <th>{{ d.release_date }}</th>
+        <td><a style = "text-decoration:none" href="/dlcs/{{ dlc.product_id }}">{{ dlc.product_id }}</td>
+        <td>{{ dlc.name }}</td>
+        <td><a style = "text-decoration:none" href = "/games/{{ dlc.game_id }}">{{ dlc.product_id }}</a></td>
+        <td>{{ dlc.release_date }}</td>
 
     </tr>
 

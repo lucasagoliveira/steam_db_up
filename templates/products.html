@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Products</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Kind</th>
+    </tr>
+
+    {% for product in products %}
+
+    <tr>
+        <td>{{ product.product_id }}</a></td>
+        <td>{{ product.name }}</td>
+        <td><a style = "text-decoration:none" href = "/kinds/{{ product.kind_id }}">{{ product.kind_id }}</a></td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

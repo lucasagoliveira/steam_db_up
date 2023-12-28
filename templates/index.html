@@ -27,14 +27,6 @@
     <td>{{ stats.n_dlc }}</td>
 </tr>
 <tr>
-    <td>Publichers</td>
-    <td>{{ stats.n_publisher }}</td>
-</tr>
-<tr>
-    <td>Developers</td>
-    <td>{{ stats.n_developer }}</td>
-</tr>
-<tr>
     <td>Music</td>                  
     <td>{{ stats.n_music }}</td>
 </tr>
@@ -43,8 +35,8 @@
     <td>{{ stats.n_product }}</td>
 </tr>
 <tr>
-    <td>Cathegory</td>
-    <td>{{ stats.n_cathegory }}</td>
+    <td>Kind</td>
+    <td>{{ stats.n_kind }}</td>
 </tr>
 <tr>
     <td>Company</td>
@@ -56,18 +48,14 @@
 
 <h3>Products</h3>
 <p><a style = "text-decoration:none" href = "/products">List all</a></p>
-<p>Get product info:
-<form name="mid" action="javascript:window.open('/products/'+document.forms['mid'].elements['id'].value,'_self')">
-    Product Id:<input value="123" name="id" type="number" min="1"/><input type="submit" value="get"/>
-</form>
-</p>
+
 
 <h3>Games</h3>
 
 <p><a style = "text-decoration:none" href = "/games">List all</a></p>
 <p>Get game info:
-<form name="mid" action="javascript:window.open('/games/'+document.forms['mid'].elements['id'].value,'_self')">
-    Game Id:<input value="123" name="id" type="number" min="1"/><input type="submit" value="get"/>
+<form name="gameForm" action="javascript:window.open('/games/'+document.forms['gameForm'].elements['id'].value,'_self')">
+    Game Id:<input value="2900" name="id" type="number" min="1"/><input type="submit" value="get"/>
 </form>
 </p>
 
@@ -76,8 +64,8 @@
 
 <p><a style = "text-decoration:none" href = "/dlcs">List all</a></p>
 <p>Get dlc info:
-<form name="mid" action="javascript:window.open('/dlcs/'+document.forms['mid'].elements['id'].value,'_self')">
-    Dlc Id:<input value="123" name="id" type="number" min="1"/><input type="submit" value="get"/>
+<form name="dl" action="javascript:window.open('/dlcs/'+document.forms['dl'].elements['id'].value,'_self')">
+    Dlc Id:<input value="8990" name="id" type="number" min="1"/><input type="submit" value="get"/>
 </form>
 </p>
 
@@ -86,8 +74,8 @@
 
 <p><a style = "text-decoration:none" href="/musics">List all</a></p>
 <p>Get music info:
-<form name="mid" action="javascript:window.open('/musics/'+document.forms['mid'].elements['id'].value,'_self')">
-    Music Id:<input value="123" name="id" type="number" min="1"/><input type="submit" value="get"/>
+<form name="musi" action="javascript:window.open('/musics/'+document.forms['musi'].elements['id'].value,'_self')">
+    Music Id:<input value="40407" name="id" type="number" min="1"/><input type="submit" value="get"/>
 </form>
 </p>
 
@@ -95,8 +83,8 @@
 
 <p><a style = "text-decoration:none" href ="/companies">List all</a></p>
 <p>Get company info:
-<form name="mid" action="javascript:window.open('/companies/'+document.forms['mid'].elements['id'].value,'_self')">
-    Company Id:<input value="123" name="id" type="number" min="1"/><input type="submit" value="get"/>
+<form name="comp" action="javascript:window.open('/companies/'+document.forms['comp'].elements['id'].value,'_self')">
+    Company Id:<input value="78" name="id" type="number" min="1"/><input type="submit" value="get"/>
 </form>
 </p>
 
@@ -105,8 +93,8 @@
 
 <p><a style = "text-decoration:none" href ="/kinds">List all</a></p>
 <p>Get kind info:
-<form name="mid" action="javascript:window.open('/kinds/'+document.forms['mid'].elements['id'].value,'_self')">
-    Kind Id:<input value="123" name="id" type="number" min="1"/><input type="submit" value="get"/>
+<form name="kin" action="javascript:window.open('/kinds/'+document.forms['kin'].elements['id'].value,'_self')">
+    Kind Id:<input value="1" name="id" type="number" min="1"/><input type="submit" value="get"/>
 </form>
 </p>
 

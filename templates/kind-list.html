@@ -9,10 +9,10 @@
         <th>Name</th>
     </tr>
 
-    {% for ki in kind %}
+    {% for kind in kinds %}
 
     <tr>
-        <td><a href = "/kinds/{{ ki.kind_id }}">{{ ki.kind_id }}</a></td>
+        <td><a style = "text-decoration:none" href = "/kinds/{{ kind.kind_id }}">{{ kind.kind_id }}</a></td>
         <td>{{ kind.name }}</td>
 
     </tr>

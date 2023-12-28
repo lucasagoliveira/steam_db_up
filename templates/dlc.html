@@ -2,46 +2,35 @@
 
 {% block content %}
 
-<h1>{{ d.name }}</h1>
+<h1>{{ dlc.name }}</h1>
 
-<p><b>DlcID: </b>{{ d.product_id }}</p>
+<p><b>DlcID: </b>{{ dlc.product_id }}</p>
 
-<p><b>Title: </b>{{ d.name }}</p>
+<p><b>Kind: </b><a style = "text-decoration:none" href="/kinds/{{ dlc.kind_id }}">{{ dlc.kind_id }}</a></p>
 
-<p><b>Game: </b>{{ d.game_id.name }}</p>
+<p><b>Title: </b>{{ dlc.name }}</p>
 
-<p><b>Year: </b>{{ d.release_date }}</p>
+<p><b>Game: </b><a style = "text-decoration:none" href = "/games/{{ dlc.game_id }}">{{ dlc.game_id }}</a></p>
 
-<p><b>Review Scores: </b>{{ d.review_score }}</p>
+<p><b>Year: </b>{{ dlc.release_date }}</p>
 
-<p><b>Required Age: </b>{{ d.required_age }}</p>
+<p><b>Review Scores: </b>{{ dlc.review_score }}</p>
 
-<p>
-    <b>Genres: </b>
-<ul>
-    {% for g in genres %}
-    <li>{{ g.genres }}</li>
-    {% endfor %}
-</ul>
-</p>
+<p><b>Required Age: </b>{{ dlc.required_age }}</p>
 
-<p>
-    <b>Platforms: </b>
-<ul>
-    {% for p in platforms %}
-    <li>{{ p.platforms }}</li>
-    {% endfor %}
-</ul>
-</p>
+<p><b>Price: </b>{{ dlc.price }}</p>
 
-<p>
-    <b>Categories: </b>
-<ul>
-    {% for c in categories %}
-    <li>{{ c.categories }}</li>
-    {% endfor %}
-</ul>
-</p>
+<p><b>Achievements: </b>{{ dlc.achievements }}</p>
+
+<p><b>Genres: </b>{{ dlc.genres }}</p>
+
+<p><b>Platforms: </b>{{ dlc.platforms }}</p>
+
+<p><b>Categories: </b>{{ dlc.categories }}</p>
+
+<p><b>Developers: </b><a style = "text-decoration:none" href="/companies/{{ dlc.developers_id }}">{{ dlc.developers_id }}</a></p>
+
+<p><b>Publishers: </b><a style = "text-decoration:none" href="/companies/{{ dlc.publishers_id }}">{{ dlc.publishers_id }}</a></p>
 
 
 {% endblock %}
