@@ -68,8 +68,7 @@ def get_dlc(id):
         NATURAL JOIN product
         WHERE product_id = ?
     ''', [id]).fetchone()
-    
-
+   
     aux = str(publishers_id[0]).split(';')
     publishers = {}
     for publisher in aux:
@@ -85,7 +84,6 @@ def get_dlc(id):
         NATURAL JOIN product
         WHERE product_id = ?
     ''', [id]).fetchone()
-    
     
     aux = str(developers_id[0]).split(';')
     developers = {}
