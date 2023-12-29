@@ -1,24 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<h1>DLCs</h1>
+<h1>DLCs per Game</h1>
 
 <table>
     <tr>
-        <th>ID</th>
         <th>Name</th>
-        <th>Game</th>
-        <th>Year</th>
+        <th>Number of DLCs</th>
     </tr>
 
-    {% for dlc in dlcs %}
+    {% for entry in table %}
 
     <tr>
-        <td><a style = "text-decoration:none" href="/dlcs/{{ dlc.product_id }}">{{ dlc.product_id }}</td>
-        <td>{{ dlc.name }}</td>
-        <td><a style = "text-decoration:none" href = "/games/{{ dlc.game_id }}">{{ dlc.product_id }}</a></td>
-        <td>{{ dlc.release_date }}</td>
+        <td>{{ entry.name }}</td>
+        <td>{{ entry.number_of_dlcs }}</td>
 
     </tr>
 

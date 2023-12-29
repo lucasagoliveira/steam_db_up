@@ -68,7 +68,7 @@ def get_dlc(id):
         NATURAL JOIN product
         WHERE product_id = ?
     ''', [id]).fetchone()
-    
+   
     aux = str(publishers_id[0]).split(';')
     publishers = {}
     for publisher in aux:
@@ -115,7 +115,7 @@ def get_game(id):
         FROM game
         NATURAL JOIN product
         WHERE product_id = ?
-    ''', [id]).fetchone()
+        ''', [id]).fetchone()
     
     if game is None:
         abort(404, 'Game id {} does not exist.'.format(id))
@@ -289,16 +289,16 @@ def get_musics_per_game():
     return render_template('musics-per-game.html', table = table)
     
 # Products like %text%
-@APP.route('/products/like/<text>')
+@APP.route('/products-like/<text>')
 def get_products_like(text):
     text = '%'+text+'%'
     table = db.execute('''
         SELECT *
-        FROM products
+        FROM product
         where name like ? 
     ''', [text]).fetchall()
     
     if table is None:
         abort(404, 'There is no product with {} in its name'.format(text))
         
-    return render_template('product-like.html', table = table)
+    return render_template('product-like.html', table = table, text = text)

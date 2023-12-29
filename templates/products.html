@@ -2,24 +2,21 @@
 
 {% block content %}
 
-<h1>DLCs</h1>
+<h1>Products</h1>
 
 <table>
     <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Game</th>
-        <th>Year</th>
+        <th>Kind</th>
     </tr>
 
-    {% for dlc in dlcs %}
+    {% for product in products %}
 
     <tr>
-        <td><a style = "text-decoration:none" href="/dlcs/{{ dlc.product_id }}">{{ dlc.product_id }}</td>
-        <td>{{ dlc.name }}</td>
-        <td><a style = "text-decoration:none" href = "/games/{{ dlc.game_id }}">{{ dlc.product_id }}</a></td>
-        <td>{{ dlc.release_date }}</td>
-
+        <td>{{ product.product_id }}</a></td>
+        <td>{{ product.name }}</td>
+        <td><a style = "text-decoration:none" href = "/kinds/{{ product.kind_id }}">{{ product.kind_id }}</a></td>
     </tr>
 
     {% endfor %}
@@ -51,5 +48,4 @@
       document.documentElement.scrollTop = 0;
     }
     </script>
-
 {% endblock %}

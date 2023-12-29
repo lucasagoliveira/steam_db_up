@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>{{ comp.name }}</h1>
+<h1>{{ company.name }}</h1>
 
-<p><b>CompanyID: </b>{{ comp.company_id }}</p>
+<p><b>CompanyID: </b>{{ company.company_id }}</p>
 
-<p><b>Name: </b>{{ comp.name }}</p>
+<p><b>Name: </b>{{ company.name }}</p>
 
-<p><b>Released Games: </b>{{ comp.released_games }}</p>
+<p><b>Released Games: </b>{{ company.released_games }}</p>
 
-<p><b>Unreleased Games: </b>{{ comp.unreleased_games }}</p>
+<p><b>Unreleased Games: </b>{{ company.unreleased_games }}</p>
 
-<p><b>Total Revenue: </b>{{ comp.total_reveneu }}</p>
+<p><b>Total Revenue: </b>{{ company.total_revenue }}</p>
 
-<p><b>Average Revenue per Game: </b>{{ avgrevenue_pergame }}</p>
+<p><b>Average Revenue per Game: </b>{{ company.avgrevenue_pergame }}</p>
 
-<p><b>Contry HQ </b>{{ comp.hq_country }}</p>
+<p><b>Contry HQ: </b>{{ company.hq_country }}</p>
 
 {% endblock %}
